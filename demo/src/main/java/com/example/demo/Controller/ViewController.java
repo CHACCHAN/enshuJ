@@ -1,12 +1,12 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ViewController {
-    @RequestMapping(value = "{path:[^\\.]*}")
+    @RequestMapping(value = "/{path:[^\\.]*}")
     public String redirect() {
-        return "index";
+        return "forward:/index.html";
     }
 }
