@@ -9,4 +9,5 @@ public class ViewController {
     public String redirect() {
         return "forward:/index.html";
     }
+
 }
