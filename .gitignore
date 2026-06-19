@@ -1,2 +1,4 @@
 pgadmin_data/*
 postgres_data/*
+demo/data/*
+demo/uploads/*

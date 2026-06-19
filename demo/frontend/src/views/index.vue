@@ -5,12 +5,14 @@ import axios from "axios"
 const router = useRouter()
 
 const messages = [
-    { name: "ユーザー1", message: "こんにちは！" },
-    { name: "ユーザー2", message: "元気ですか？" },
+    { name: "L24G3102", message: "Vue.jsを使ったSPAサイトです" },
+    { name: "L24G3102", message: "HTMLファイルは常に1枚のままでDOMは部分更新になります" },
+    { name: "L24G3102", message: "デザインはBootstrap5のCSSフレームワークを使ってます" },
 ]
 
 const navItems = [
     { label: "商品管理", desc: "在庫・価格の管理", to: "/shop" },
+    { label: '購入ページ', desc: '商品を選んで購入', to: '/order' },
 ]
 
 function getInitials(name: string): string {
@@ -34,7 +36,7 @@ const handleLogout = async (): Promise<void> => {
 
                 <!-- ナビバー -->
                 <div class="d-flex align-items-center justify-content-between px-4 border-bottom" style="height: 52px;">
-                    <span class="fw-medium">Demo</span>
+                    <span class="fw-medium">Dashboard</span>
                     <button class="btn btn-sm btn-outline-danger" @click="handleLogout">
                         ログアウト
                     </button>
@@ -46,7 +48,7 @@ const handleLogout = async (): Promise<void> => {
                     <div class="text-center py-4">
                         <p class="text-muted small mb-1" style="letter-spacing: 0.08em;">DEMO SITE</p>
                             <h1 class="h4 fw-medium mb-2">ようこそ</h1>
-                        <p class="text-muted small mb-0">管理機能へのアクセスはこちらから</p>
+                        <p class="text-muted small mb-0">各メニューへのアクセスはこちらから</p>
                     </div>
 
                     <!-- ナビカード -->

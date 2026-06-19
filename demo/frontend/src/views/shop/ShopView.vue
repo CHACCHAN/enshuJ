@@ -31,11 +31,11 @@ function openDelete(item: Shop): void {
     new Modal(document.getElementById("confirmModal")!).show()
 }
 
-async function handleSubmit(form: Shop): Promise<void> {
+async function handleSubmit(form: Shop, image?: File): Promise<void> {
     if (form.id) {
-        await shopApi.update(form.id, form)
+        await shopApi.update(form.id, form, image)
     } else {
-        await shopApi.create(form)
+        await shopApi.create(form, image)
     }
     fetchShops()
 }

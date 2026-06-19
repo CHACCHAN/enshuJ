@@ -22,6 +22,9 @@ public class Shop {
     @Column(nullable = false)
     private Integer stock;
 
+    @Column
+    private String imagePath;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
