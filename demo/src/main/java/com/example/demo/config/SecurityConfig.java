@@ -18,7 +18,8 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/index.html", "/assets/**", "/static/**").permitAll()// 静的ファイル
-                .requestMatchers("/api/**", "/auth/**").permitAll() // ログインと登録
+                .requestMatchers("/auth/login", "/auth/register").permitAll() // Vueページ
+                .requestMatchers("/api/login", "/api/register").permitAll()   // 認証API
                 .anyRequest().authenticated() // それ以外はログイン必須
             )
             .formLogin(login -> login
