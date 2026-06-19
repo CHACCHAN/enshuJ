@@ -6,8 +6,8 @@ services:
     volumes:
       - .:/workspace:cached
     ports:
-      - "8080:8080"
-      - "5173:5173"
+      - "38080:8080"
+      - "35173:5173"
     tty: true
     depends_on:
       - db
@@ -19,7 +19,7 @@ services:
       POSTGRES_PASSWORD: Password
       POSTGRES_DB: demo_db
     ports:
-      - "5432:5432"
+      - "35432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/
   pgadmin:
@@ -28,7 +28,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: example@example.com
       PGADMIN_DEFAULT_PASSWORD: Password
     ports:
-      - "8888:80"
+      - "30080:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
