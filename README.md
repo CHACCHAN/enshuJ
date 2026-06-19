@@ -31,7 +31,7 @@ Springのビルド(デプロイ)をします。
 1. VSCodeのターミナルを開き、以下のコマンドを実行してください。
 ```bash
 cd demo
-./mvnw clean package -DskipTests
+./mvnw clean package
 ```
 2. demo/target/xxx.jar が生成されるので、以下のコマンドで実行してください。
 ```bash
