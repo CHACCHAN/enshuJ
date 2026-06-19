@@ -5,9 +5,9 @@ import axios from "axios"
 const router = useRouter()
 
 const messages = [
-    { name: "L24G3102", message: "Vue.jsを使ったSPAサイトです" },
-    { name: "L24G3102", message: "HTMLファイルは常に1枚のままでDOMは部分更新になります" },
-    { name: "L24G3102", message: "デザインはBootstrap5のCSSフレームワークを使ってます" },
+    { name: "Dev", message: "Vue.jsを使ったSPAサイトです" },
+    { name: "Dev", message: "HTMLファイルは常に1枚のままでDOMは部分更新になります" },
+    { name: "Dev", message: "デザインはBootstrap5のCSSフレームワークを使ってます" },
 ]
 
 const navItems = [
