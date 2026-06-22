@@ -1,7 +1,13 @@
 {
     "name": "Spring Boot Dev Environment",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "app",
+    "mounts": [
+        "source=latex-doc-claude-data,target=/root/.claude,type=volume",
+        "source=${localEnv:HOME}/.cline,target=/root/.cline,type=bind,consistency=cached",
+    ],
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
@@ -12,10 +18,11 @@
                 "Vue.vscode-typescript-vue-plugin",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
-                "vmware.vscode-spring-boot-dashboard"
+                "vmware.vscode-spring-boot-dashboard",
+                "anthropic.claude-code",
+                "saoudrizwan.claude-dev"
             ]
         }
     },
-    "remoteUser": "vscode",
     "postCreateCommand": "cd demo/frontend && bun install"
 }
