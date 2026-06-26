@@ -1,0 +1,1 @@
+import{t as e}from"./axios-DbutSdq1.js";var t=e.create({baseURL:`/api`,headers:{"Content-Type":`application/json`},withCredentials:!0});t.interceptors.response.use(e=>e,e=>(e.response?.status===401&&(window.location.href=`/auth/login`),Promise.reject(e)));export{t};

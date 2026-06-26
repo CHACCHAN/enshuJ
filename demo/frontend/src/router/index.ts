@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { useAuth } from '../composables/useAuth';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,12 +31,49 @@ const router = createRouter({
             name: 'order',
             component: () => import('../views/order/OrderView.vue')
         },
+        {
+            path: '/chat',
+            component: () => import('../views/chat/ChatLayout.vue'),
+            meta: { requiresAuth: true },
+            children: [
+                {
+                    path: '',
+                    name: 'chat-home',
+                    component: () => import('../views/chat/ChatHome.vue'),
+                },
+                {
+                    path: ':roomId',
+                    name: 'chat-room',
+                    component: () => import('../views/chat/ChatRoom.vue'),
+                },
+            ],
+        },
+        {
+            path: '/profile',
+            name: 'profile',
+            component: () => import('../views/profile/ProfileView.vue'),
+            meta: { requiresAuth: true },
+        },
+        {
+            path: '/settings',
+            name: 'account-settings',
+            component: () => import('../views/profile/AccountSettings.vue'),
+            meta: { requiresAuth: true },
+        },
     ]
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to) => {
     NProgress.start();
-    next();
+    if (to.meta.requiresAuth) {
+        const { currentUser, authChecked, fetchCurrentUser } = useAuth();
+        if (!authChecked.value) {
+            await fetchCurrentUser();
+        }
+        if (!currentUser.value) {
+            return '/auth/login';
+        }
+    }
 });
 
 router.afterEach(() => {

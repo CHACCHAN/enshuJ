@@ -13,6 +13,8 @@ const messages = [
 const navItems = [
     { label: "商品管理", desc: "在庫・価格の管理", to: "/shop" },
     { label: '購入ページ', desc: '商品を選んで購入', to: '/order' },
+    { label: 'チャット', desc: 'WebSocketを使ったチャットアプリです', to: '/chat' },
+    { label: 'アカウント', desc: 'アカウント設定を変更できます', to: '/settings' },
 ]
 
 function getInitials(name: string): string {

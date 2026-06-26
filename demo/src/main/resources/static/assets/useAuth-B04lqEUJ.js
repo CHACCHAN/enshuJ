@@ -1,0 +1,1 @@
+import{D as e}from"./runtime-core.esm-bundler-DgE7T0lB.js";import{n as t}from"./chat-C0YjTI0D.js";var n=e(null),r=e(!1);function i(){async function e(){try{n.value=await t.getProfile()}catch{n.value=null}finally{r.value=!0}}return{currentUser:n,authChecked:r,fetchCurrentUser:e}}export{i as t};

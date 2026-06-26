@@ -25,12 +25,14 @@ public class SecurityConfig {
                 .requestMatchers("/index.html", "/assets/**", "/static/**").permitAll()// 静的ファイル
                 .requestMatchers("/auth/login", "/auth/register").permitAll() // Vueページ
                 .requestMatchers("/api/login", "/api/register").permitAll()   // 認証API
+                .requestMatchers("/ws/**").permitAll()                        // SockJS ハンドシェイク
+                .requestMatchers("/api/avatars/**").permitAll()               // アバター画像配信
                 .anyRequest().authenticated() // それ以外はログイン必須
             )
             .formLogin(login -> login
                 .loginPage("/auth/login")
                 .loginProcessingUrl("/api/login")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/", false)
                 .permitAll()
             )
             .logout(logout -> logout

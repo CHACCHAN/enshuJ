@@ -5,6 +5,7 @@ import router from './router';
 import './assets/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 axios.defaults.withCredentials = true;
 

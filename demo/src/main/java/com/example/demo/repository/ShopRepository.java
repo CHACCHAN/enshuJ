@@ -90,7 +90,7 @@ public class ShopRepository {
                     .param("imagePath", shop.getImagePath())
                     .param("createdAt", shop.getCreatedAt())
                     .param("updatedAt", shop.getUpdatedAt())
-                    .update(keyHolder);
+                    .update(keyHolder, "id");
             shop.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
         } else {
             shop.setUpdatedAt(now);

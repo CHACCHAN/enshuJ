@@ -7,6 +7,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -40,6 +41,13 @@ public class UserRepository {
                 .param("id", id)
                 .query(USER_MAPPER)
                 .optional();
+    }
+
+    public List<User> searchByUsername(String query) {
+        return jdbcClient.sql("SELECT * FROM users WHERE LOWER(username) LIKE LOWER(:query) OR LOWER(nickname) LIKE LOWER(:query) LIMIT 20")
+                .param("query", "%" + query + "%")
+                .query(USER_MAPPER)
+                .list();
     }
 
     public User save(User user) {
